@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- フォント読み込み-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <!-- デザイン読み込み -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/sample_hamburger.css">
+    <title>hello CSS animations!</title>
+</head>
+<body>
+    <!-- メニューここから -->
+    <div id="menu_embed"></div>
+    <script>
+    $(function() {
+        $("#menu_embed").load("../menu.html");
+    });
+    </script>
+    <!-- メニューここまで　-->
+    <div class="main background_white zen-kaku-gothic-new-regular">
+        <div class="title">
+            <h1>ハンバーガーメニューのアニメーション</h1>
+        </div>
+        <div class="sub_title">
+            <h2>コードサンプル</h2>
+        </div>
+        <div class="container_wrapper montserrat-light fadein_content">
+            <div class="container">
+                <div id="hamburger_sample_button">
+                    <input type="checkbox" id="hamburger_sample_check" class="hidden">
+                    <label for="hamburger_sample_check" id="hamburger_sample">
+                        <span></span>
+                    </label>
+                    <div id="menu_sample">menu<br />sample</div>
+                </div>
+            </div>
+        <div class="container">
+            <input type="radio" name="tab_name" id="tab_html" checked>
+            <label class="tab_class" for="tab_html"><b>HTML</b></label>
+            <div class="tab_content">
+                <p>
+<pre>
+&lt;div id=&quot;hamburger_sample_button&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; id=&quot;hamburger_sample_check&quot; class=&quot;hidden&quot;&gt;
+    &lt;label for=&quot;hamburger_sample_check&quot; id=&quot;hamburger_sample&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;div id=&quot;menu_sample&quot;&gt;menu&lt;br /&gt;sample&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </p>
+            </div>
+            <input type="radio" name="tab_name" id="tab_css">
+            <label class="tab_class" for="tab_css"><b>CSS</b></label>
+            <div class="tab_content">
+                <p>
+<pre>
+.hidden {
+display: none;
+}
+
+#hamburger_sample {
+background-color: #61b3ff;
+border-radius: 10%;
+display: flex;
+height: 50px;
+width: 50px;
+justify-content: center;
+align-items: center;
+/*position: fixed;*/
+z-index: 100;
+cursor: pointer;
+/*top: 20px;*/
+/*left: 20px;*/
+}
+
+#hamburger_sample span,
+#hamburger_sample span::before,
+#hamburger_sample span::after {
+content: "";
+display: block;
+position: absolute;
+height: 3px;
+width: 25px;
+border-radius: 3px;
+background-color: #ffffff;
+transition: all 0.4s;
+}
+
+#hamburger_sample span::before {
+bottom: 8px;
+}
+#hamburger_sample span::after {
+top: 8px;
+}
+
+#hamburger_sample_check:checked ~ #menu_sample {
+left: 0;
+}
+
+#hamburger_sample_check:checked ~ #hamburger_sample span {
+background-color: transparent;
+}
+
+#hamburger_sample_check:checked ~ #hamburger_sample span::before {
+bottom: 0;
+transform: rotate(45deg);
+}
+
+#hamburger_sample_check:checked ~ #hamburger_sample span::after {
+top: 0;
+transform: rotate(-45deg);
+}
+
+#menu_sample {
+position: relative;
+width: 100px;
+height: 50px;
+background-color: #b9d9f6;
+color: #ffffff;
+display: flex;
+justify-content: center;
+align-items: center;
+left: -100px;
+top: 10px;
+border-radius: 5px;
+}
+</pre>
+                </p>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="sub_title">
+        <h2>解説</h2>
+    </div>
+    <div class="explanation">
+        <p>
+            もし解説があれば書く<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+        </p>
+    </div>
+</body>
+</html>

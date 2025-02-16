@@ -1,0 +1,97 @@
+html, body{
+  height: 100%;
+}
+
+.title h1 {
+  font-size: 25px;
+  display: inline-block;
+  border-top: 3px solid #4d9de8;
+  border-bottom: 3px solid #4d9de8;
+  padding: 8px 50px;
+  margin-bottom: 30px;
+}
+
+.sub_title h2 {
+  width: 90%;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+}
+
+.sub_title h2::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  padding: 5px;
+  margin: 0 15px;
+  background-color: #4d9de8;
+}
+
+.explanation {
+  width: 85%;
+  font-size: 15px;
+  display: block;
+  margin: auto;
+}
+
+.container_wrapper {
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 400px;
+}
+
+.container {
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.tab_class {
+    cursor: pointer;
+    width: calc(100%/2);
+    height: 20px;
+    text-align: center;
+    display: block;
+    float:left;
+    order: -1;
+    position: relative;
+    margin: auto;
+    padding: 5px 0;
+    border-radius: 5px 5px 0 0;
+}
+
+input[name="tab_name"] {
+    display: none;
+  }
+
+  input:checked + .tab_class {
+    background-color: #4d9de8;
+    color: white;
+  }
+
+.tab_content {
+    display: none;
+    flex-wrap: wrap;
+    height: 340px;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #c9e4fe rgba(0,0,0,0);
+    background-color: #4d9de8;
+    color: white;
+    padding: 15px;
+  }
+   
+  input:checked + .tab_class + .tab_content {
+    display: block;
+  }

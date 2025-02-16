@@ -1,0 +1,67 @@
+#top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+#top h1 {
+    margin: 0;
+    font-size: 30px;
+    color: rgb(50, 50, 50);
+}
+
+#top img {
+    display: block;
+    margin: auto;
+    padding: 20px 0;
+    width: 60%;
+}
+
+.clock {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    outline: 3px solid hsl(245, 44%, 5%);
+    background-color: rgb(254, 254, 254);
+    margin-bottom: 20px;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background-color: hsl(209, 100%, 69%);
+    transform-origin: 0% 100%;
+}
+
+.hour {
+    height: 2px;
+    background-color: rgb(160, 160, 160);
+    animation: rotateHour 60s infinite steps(60);
+}
+
+.minute {
+    animation: rotateMinute 12s infinite linear;
+}
+
+@keyframes rotateHour {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateMinute {
+    from {
+        transform: rotate(270deg);
+    }
+    to {
+        transform: rotate(630deg);
+    }
+}

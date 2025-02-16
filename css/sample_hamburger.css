@@ -1,0 +1,75 @@
+.menu {
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#hamburger_sample {
+    background-color: #61b3ff;
+    border-radius: 10%;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    /*position: fixed;*/
+    z-index: 100;
+    cursor: pointer;
+    /*top: 20px;*/
+    /*left: 20px;*/
+}
+
+#hamburger_sample span,
+#hamburger_sample span::before,
+#hamburger_sample span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    transition: all 0.4s;
+}
+
+#hamburger_sample span::before {
+    bottom: 8px;
+}
+#hamburger_sample span::after {
+    top: 8px;
+}
+
+#hamburger_sample_check:checked ~ #menu_sample {
+    left: 0;
+}
+
+#hamburger_sample_check:checked ~ #hamburger_sample span {
+    background-color: transparent;
+}
+
+#hamburger_sample_check:checked ~ #hamburger_sample span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#hamburger_sample_check:checked ~ #hamburger_sample span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#menu_sample {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    background-color: #b9d9f6;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -100px;
+    top: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- フォント読み込み-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <!-- デザイン読み込み -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/sample_clock.css">
+    <title>hello CSS animations!</title>
+</head>
+<body>
+    <!-- メニューここから -->
+    <div id="menu_embed"></div>
+    <script>
+    $(function() {
+        $("#menu_embed").load("../menu.html");
+    });
+    </script>
+    <!-- メニューここまで　-->
+    <div class="main background_white zen-kaku-gothic-new-regular">
+        <div class="title">
+            <h1>動く時計のアニメーション</h1>
+        </div>
+        <div class="sub_title">
+            <h2>コードサンプル</h2>
+        </div>
+        <div class="container_wrapper montserrat-light fadein_content">
+            <div class="container">
+                <div class="clock">
+                    <div class="hand hour"></div>
+                    <div class="hand minute"></div>
+                </div>
+            </div>
+            <div class="container">
+                <input type="radio" name="tab_name" id="tab_html" checked>
+                <label class="tab_class" for="tab_html"><b>HTML</b></label>
+                <div class="tab_content">
+                    <p>
+<pre>
+&lt;div class=&quot;hand hour&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;hand minute&quot;&gt;&lt;/div&gt;
+</pre>
+                    </p>
+                </div>
+                <input type="radio" name="tab_name" id="tab_css">
+                <label class="tab_class" for="tab_css"><b>CSS</b></label>
+                <div class="tab_content">
+                    <p>
+<pre>
+.clock {
+position: relative;
+width: 150px;
+height: 150px;
+border-radius: 50%;
+outline: 3px solid hsl(245, 44%, 5%);
+background-color: rgb(254, 254, 254);
+margin-bottom: 20px;
+}
+
+.hand {
+position: absolute;
+bottom: 50%;
+left: 50%;
+width: 50%;
+height: 2px;
+background-color: hsl(209, 100%, 69%);
+transform-origin: 0% 100%;
+}
+
+.hour {
+height: 2px;
+background-color: rgb(160, 160, 160);
+animation: rotateHour 60s infinite steps(60);
+}
+
+.minute {
+animation: rotateMinute 12s infinite linear;
+}
+
+@keyframes rotateHour {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+
+@keyframes rotateMinute {
+from {
+    transform: rotate(270deg);
+}
+to {
+    transform: rotate(630deg);
+}
+}
+</pre>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <br/>
+    <div class="sub_title">
+        <h2>解説</h2>
+    </div>
+    <div class="explanation">
+        <p>
+            もし解説があれば書く<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+        </p>
+    </div>
+</body>
+</html>

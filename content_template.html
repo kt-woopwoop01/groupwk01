@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- フォント読み込み-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <!-- デザイン読み込み -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/content.css">
+    <!-- 必要があればここにCSSファイルを追加する -->
+    <title>hello CSS animations!</title>
+</head>
+<body>
+    <!-- メニューここから -->
+    <div id="menu_embed"></div>
+    <script>
+    $(function() {
+        $("#menu_embed").load("../menu.html");
+    });
+    </script>
+    <!-- メニューここまで　-->
+    <div class="main background_white zen-kaku-gothic-new-regular">
+        <div class="title">
+            <!-- タイトルここから -->
+            <h1>タイトル</h1>
+            <!-- タイトルここまで -->
+        </div>
+        <div class="sub_title">
+            <h2>コードサンプル</h2>
+        </div>
+        <div class="container_wrapper montserrat-light fadein_content">
+            <div class="container">
+                <!-- ここにサンプルで動かす用のコードを書く -->
+                 sample
+            </div>
+            <div class="container">
+                <input type="radio" name="tab_name" id="tab_html" checked>
+                <label class="tab_class" for="tab_html"><b>HTML</b></label>
+                <div class="tab_content">
+                    <!-- コードサンプル用HTMLここから -->
+                    <!-- HTMLを以下preタグの内部に書く -->
+                    <!-- "<", ">", '"', "&"はエスケープ処理をすること-->
+                    <p>
+<pre>
+HTML_sample
+</pre>
+                    </p>
+                    <!-- コードサンプル用HTMLここまで -->
+                </div>
+                <input type="radio" name="tab_name" id="tab_css">
+                <label class="tab_class" for="tab_css"><b>CSS</b></label>
+                <div class="tab_content">
+                    <!-- コードサンプル用CSSここから -->
+                    <!-- HTMLを以下preタグの内部に書く -->
+                    <p>
+<pre>
+CSS_sample
+</pre>
+                    </p>
+                    <!-- コードサンプル用CSSここまで -->
+                </div>
+            </div>
+        </div>
+    <br/>
+    <div class="sub_title">
+        <h2>解説</h2>
+    </div>
+    <div class="explanation">
+        <p>
+            <!-- 以下解説があれば書く -->
+            もし解説があれば書く<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            hoge<br/>
+            <!-- 解説ここまで -->
+        </p>
+    </div>
+</body>
+</html>

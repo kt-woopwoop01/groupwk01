@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- フォント読み込み-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <!-- デザイン読み込み -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/about.css">
+    <title>hello CSS animations!</title>
+</head>
+<body>
+    <!-- メニューここから -->
+    <div id="menu_embed"></div>
+    <script>
+      $(function() {
+        $("#menu_embed").load("menu.html");
+      });
+    </script>
+    <!-- メニューここまで　-->
+    <div class="main">
+        <div class="container zen-kaku-gothic-new-regular fadein_content">
+            <div class="item">
+                <h1><span class="lobster-regular">Hello <span class="skyblue">CSS</span> animations!</span></h1><br/>
+                これは課内グループ活動で作成された模擬サイトです。<br/>
+                CSSアニメーションをテーマとし、作成者自身の学習と課内への知識・技術の共有を目的としています。<br/><br/>
+                この模擬サイトがCSSアニメーションに興味を持つきっかけとなれば幸いです。
+            </div>
+            <div class="item">
+                <img src="/img/undraw_programmer_raqr.svg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
