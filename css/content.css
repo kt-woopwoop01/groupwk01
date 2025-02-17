@@ -46,14 +46,15 @@ html, body{
     height: 400px;
 }
 
+
 .container {
-    justify-content: center;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 50%;
-    height: 100%;
+  justify-content: center;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 50%;
+  height: 100%;
 }
 
 .tab_class {
@@ -95,3 +96,15 @@ input[name="tab_name"] {
   input:checked + .tab_class + .tab_content {
     display: block;
   }
+
+  @media screen and (max-width:680px) {
+    .container_wrapper{
+      display: block;
+      height: 800px;
+    }
+    .container {
+      width: 100%;
+      height: 50%;
+    }
+  }
+  
