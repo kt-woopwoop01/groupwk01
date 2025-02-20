@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/read_svg.js" async></script>
+    <!-- フォント読み込み-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <!-- デザイン読み込み -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/sample_bird.css">
+    <!-- 必要があればここにCSSファイルを追加する -->
+    <title>hello CSS animations!</title>
+</head>
+<body>
+    <!-- メニューここから -->
+    <div id="menu_embed"></div>
+    <script>
+    $(function() {
+        $("#menu_embed").load("menu.html");
+    });
+    </script>
+    <!-- メニューここまで　-->
+    <div class="main background_white zen-kaku-gothic-new-regular">
+        <div class="title">
+            <!-- タイトルここから -->
+            <h1>鳥</h1>
+            <!-- タイトルここまで -->
+        </div>
+        <div class="sub_title">
+            <h2>コードサンプル</h2>
+        </div>
+        <div class="container_wrapper montserrat-light fadein_content">
+            <div class="container">
+                
+
+            </div>
+            <div class="container">
+                <input type="radio" name="tab_name" id="tab_html" checked>
+                <label class="tab_class" for="tab_html"><b>HTML</b></label>
+                <div class="tab_content">
+                    <!-- コードサンプル用HTMLここから -->
+                    <!-- HTMLを以下preタグの内部に書く -->
+                    <!-- "<", ">", '"', "&"はエスケープ処理をすること-->
+                    <p>
+<pre>
+鳥のSVGを作成しました。
+左右の羽と胴体にクラスを振ってあります。
+</pre>
+                    </p>
+                    <!-- コードサンプル用HTMLここまで -->
+                </div>
+                <input type="radio" name="tab_name" id="tab_css">
+                <label class="tab_class" for="tab_css"><b>CSS</b></label>
+                <div class="tab_content">
+                    <!-- コードサンプル用CSSここから -->
+                    <!-- HTMLを以下preタグの内部に書く -->
+                    <p>
+<pre>
+@keyframes flap-left {
+    0% {
+        transform: 
+            rotateX(0deg) 
+            rotateY(-60deg) 
+            rotateZ(-60deg);
+    }
+
+    50% {
+        transform: 
+            rotateX(120deg) 
+            rotateY(0deg) 
+            rotateZ(-60deg);
+    }
+
+    100% {
+        transform: 
+            rotateX(0deg) 
+            rotateY(-60deg) 
+            rotateZ(-60deg);
+    }
+}
+
+@keyframes flap-right {
+    0% {
+        transform: 
+            rotateX(120deg) 
+            rotateY(160deg) 
+            rotateZ(0deg);
+    }
+
+    50% {
+        transform: 
+            rotateX(0deg) 
+            rotateY(160deg) 
+            rotateZ(2deg);
+    }
+
+    100% {
+        transform: 
+            rotateX(120deg) 
+            rotateY(160deg) 
+            rotateZ(0deg);
+    }
+}
+
+@keyframes body-swing {
+    0% {
+        transform: 
+            rotateX(5deg) 
+            rotateY(0deg) 
+            rotateZ(0deg);
+    }
+
+    50% {
+        transform: 
+            rotateX(0deg) 
+            rotateY(15deg) 
+            rotateZ(5deg);
+    }
+
+    100% {
+        transform: 
+            rotateX(5deg) 
+            rotateY(0deg) 
+            rotateZ(0deg);
+    }
+}
+
+
+svg {
+    position:absolute;
+    /* 羽ばたく中心を調整 */
+}
+
+#path24,
+.wing-left {
+    transform-origin:123px 179px;
+    animation: 
+        flap-left 
+        2s 
+        ease-in-out 
+        infinite 
+        alternate;
+}
+
+#path3,
+.wing-right {
+    transform-origin: 130px 180px;
+    animation: 
+        flap-right
+            2s 
+            ease-in-out 
+            infinite 
+            alternate;
+}
+
+#layer1:not(.wing-left, .wing-right) {
+    transform-origin: 127px 200px;
+    animation: 
+        body-swing
+            2s 
+            ease-in-out 
+            infinite 
+            alternate;
+}
+</pre>
+                    </p>
+                    <!-- コードサンプル用CSSここまで -->
+                </div>
+            </div>
+        </div>
+    <br/>
+    <div class="sub_title">
+        <h2>解説</h2>
+    </div>
+    <div class="explanation">
+        <p>
+            <!-- 以下解説があれば書く -->
+            元々は知り合いのEaglesコピーバンドのBIRDIESの周年ライブ用にデザインした以下の画像がありまして、<br/>
+            <img src="img/bird.svg" height="400px" style="transform: translateX(-200px);"><br/>
+            これを羽ばたかせたいと思ったのが始まりです。<br/>
+            左右の羽と胴体にclassを設定し別々のアニメーションを設定しています。<br/>
+<pre>
+transform
+    rotateX:XXdeg
+    rotateY:XXdeg
+    rotateZ:XXdeg;
+</pre>
+            のXXをCSSアニメーション変化させ、羽ばたかせています。<br/>
+            羽が片方だけピンクなのは、奥側と手前を認識しやすくするためにあえて色分けしています。<br/>
+            <!-- 解説ここまで -->
+
+    </div>
+</body>
+</html>

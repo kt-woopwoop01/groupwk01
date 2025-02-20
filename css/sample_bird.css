@@ -1,0 +1,64 @@
+@keyframes flap-left {
+    0% {
+        transform: rotateX(0deg) rotateY(-60deg) rotateZ(-60deg);
+    }
+
+    50% {
+        transform: rotateX(120deg) rotateY(0deg) rotateZ(-60deg);
+    }
+
+    100% {
+        transform: rotateX(0deg) rotateY(-60deg) rotateZ(-60deg);
+    }
+}
+
+@keyframes flap-right {
+    0% {
+        transform: rotateX(120deg) rotateY(160deg) rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateX(0deg) rotateY(160deg) rotateZ(2deg);
+    }
+
+    100% {
+        transform: rotateX(120deg) rotateY(160deg) rotateZ(0deg);
+    }
+}
+
+@keyframes body-swing {
+    0% {
+        transform: rotateX(5deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateX(0deg) rotateY(15deg) rotateZ(5deg);
+    }
+
+    100% {
+        transform: rotateX(5deg) rotateY(0deg) rotateZ(0deg);
+    }
+}
+
+
+svg {
+    position:absolute;
+    /* 羽ばたく中心を調整 */
+}
+
+#path24,
+.wing-left {
+    transform-origin: 123px 179px;
+    animation: flap-left 2s ease-in-out infinite alternate;
+}
+
+#path3,
+.wing-right {
+    transform-origin: 130px 180px;
+    animation: flap-right 2s ease-in-out infinite alternate;
+}
+
+#layer1:not(.wing-left, .wing-right) {
+    transform-origin: 127px 200px;
+    animation: body-swing 2s ease-in-out infinite alternate;
+}
