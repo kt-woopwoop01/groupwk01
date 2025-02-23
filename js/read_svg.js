@@ -13,4 +13,4 @@ function readSvg(url){
       }
     });
 }
-readSvg("../img/bird.svg")
+readSvg("../groupwk01/img/bird.svg")
