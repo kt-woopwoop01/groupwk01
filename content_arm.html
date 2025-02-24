@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- フォント読み込み-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap"
+        rel="stylesheet">
+    <!-- デザイン読み込み -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/hello.css">
+    <title>hello CSS animations!</title>
+</head>
+
+<body>
+    <!-- メニューここから -->
+    <div id="menu_embed"></div>
+    <script>
+        $(function () {
+            $("#menu_embed").load("menu.html");
+        });
+    </script>
+    <!-- メニューここまで　-->
+    <div class="main background_white zen-kaku-gothic-new-regular">
+        <div class="title">
+            <h1>動く腕のアニメーション</h1>
+        </div>
+        <div class="sub_title">
+            <h2>コードサンプル</h2>
+        </div>
+        <div class="container_wrapper montserrat-light fadein_content">
+            <div class="container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="880.503" height="522.591" viewBox="0 0 880.503 522.591"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" role="img" artist="Katerina Limpitsouni"
+                    source="https://undraw.co/">
+                    <g id="Group_146" data-name="Group 146" transform="translate(-2504 -700.1) scale(2)">
+                        <g id="arm">
+                            <path id="Path_2390-8776" data-name="Path 2390"
+                                d="M1003.029,290.891A14.289,14.289,0,0,0,990.1,308.577L963.82,327.96,971.7,346.8l36.723-27.894a14.366,14.366,0,0,0-5.4-28.017Z"
+                                transform="translate(501.732 102.258)" fill="#ffb6b6" />
+                            <path id="Path_2391-8777" data-name="Path 2391"
+                                d="M1017.691,326.762l-65.873,73.159s-31.5-10.085-55.865-21.018l-10.945-33.616a66.847,66.847,0,0,1-3.2-24.189c33.774-8.987,73.057,24.453,73.057,24.453l49.309-38.624Z"
+                                transform="translate(482.841 105.956)" fill="#61b3ff" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="container">
+                <input type="radio" name="tab_name" id="tab_html" checked>
+                <label class="tab_class" for="tab_html"><b>HTML</b></label>
+                <div class="tab_content">
+                    <p>
+                        <pre>
+&lt;g id="arm"&gt;
+  &lt;path id="Path_2390-8776" data-name="Path 2390" d="M1003.029,290.891A14.289,14.289,0,0,0,990.1,308.577L963.82,327.96,971.7,346.8l36.723-27.894a14.366,14.366,0,0,0-5.4-28.017Z" transform="translate(501.732 102.258)" fill="#ffb6b6"/&gt;
+  &lt;path id="Path_2391-8777" data-name="Path 2391" d="M1017.691,326.762l-65.873,73.159s-31.5-10.085-55.865-21.018l-10.945-33.616a66.847,66.847,0,0,1-3.2-24.189c33.774-8.987,73.057,24.453,73.057,24.453l49.309-38.624Z" transform="translate(482.841 105.956)" fill="#61b3ff"/&gt;
+&lt;/g&gt;
+                        </pre>
+                        
+                    </p>
+                </div>
+                <input type="radio" name="tab_name" id="tab_css">
+                <label class="tab_class" for="tab_css"><b>CSS</b></label>
+                <div class="tab_content">
+                    <p>
+                    <pre>
+#arm {
+    transform-origin: 1350px 500px;
+    animation: flap-left 2s ease-in-out infinite alternate;
+    }
+    @keyframes flap-left {
+    0% {
+        transform:  rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateZ(8deg);
+    }
+
+    100% {
+        transform:  rotateZ(0deg);
+    }
+}    
+</pre>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="sub_title">
+            <h2>解説</h2>
+        </div>
+        <div class="explanation">
+            <p>
+                svgはつまるところhtmlなので、検証ツールなどで動かしたいタグを見つけて、そこにidを振れば、CSSでアニメーションを与えることができます。
+
+            </p>
+        </div>
+</body>
+
+</html>

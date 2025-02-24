@@ -1,6 +1,6 @@
 // html可読性を考慮したsvg読み込み用の関数
-function readSvg(url){
-    fetch(url)
+async function readSvg(url){
+    await fetch(url)
     .then(response => response.text())
     .then(data => {
       let div = document.createElement("div");
