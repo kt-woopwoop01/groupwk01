@@ -15,11 +15,8 @@
     width: 50px;
     justify-content: center;
     align-items: center;
-    /*position: fixed;*/
     z-index: 100;
     cursor: pointer;
-    /*top: 20px;*/
-    /*left: 20px;*/
 }
 
 #hamburger_sample span,
@@ -72,4 +69,13 @@
     left: -100px;
     top: 10px;
     border-radius: 5px;
+    transition: all 0.4s;
+}
+
+.img_adjust{
+    width: 100%;
+}
+
+.sample_color {
+    color: #61b3ff
 }
