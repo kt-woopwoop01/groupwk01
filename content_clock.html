@@ -45,8 +45,10 @@
                 <div class="tab_content">
                     <p>
 <pre>
-&lt;div class=&quot;hand hour&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;hand minute&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;clock&quot;&gt;
+    &lt;div class=&quot;hand hour&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;hand minute&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 </pre>
                     </p>
                 </div>
@@ -56,51 +58,49 @@
                     <p>
 <pre>
 .clock {
-position: relative;
-width: 150px;
-height: 150px;
-border-radius: 50%;
-outline: 3px solid hsl(245, 44%, 5%);
-background-color: rgb(254, 254, 254);
-margin-bottom: 20px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    outline: 3px solid hsl(245, 44%, 5%);
+    background-color: rgb(254, 254, 254);
 }
 
 .hand {
-position: absolute;
-bottom: 50%;
-left: 50%;
-width: 50%;
-height: 2px;
-background-color: hsl(209, 100%, 69%);
-transform-origin: 0% 100%;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    transform-origin: top left;
 }
 
 .hour {
-height: 2px;
-background-color: rgb(160, 160, 160);
-animation: rotateHour 60s infinite steps(60);
+    background-color: rgb(160, 160, 160);
+    animation: rotateHour 60s infinite steps(60);
 }
 
 .minute {
-animation: rotateMinute 12s infinite linear;
+    background-color: hsl(209, 100%, 69%);
+    animation: rotateMinute 12s infinite linear;
 }
 
 @keyframes rotateHour {
-from {
-    transform: rotate(0deg);
-}
-to {
-    transform: rotate(360deg);
-}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes rotateMinute {
-from {
-    transform: rotate(270deg);
-}
-to {
-    transform: rotate(630deg);
-}
+    from {
+        transform: rotate(270deg);
+    }
+    to {
+        transform: rotate(630deg);
+    }
 }
 </pre>
                     </p>
@@ -113,13 +113,21 @@ to {
     </div>
     <div class="explanation">
         <p>
-            もし解説があれば書く<br/>
-            hoge<br/>
-            hoge<br/>
-            hoge<br/>
-            hoge<br/>
-            hoge<br/>
-            hoge<br/>
+            この時計は枠部分と針部分(2個)のパーツから構成されており、針のパーツを異なる間隔で回転させることで時計のように見えるアニメーションになっています。<br/><br/>
+            <b>実際のコード内容を見ていきましょう。</b><br/><br/>
+            <img src="img/content_clock_1.png" class="img_adjust"><br/><br/>
+            clockクラスが枠部分、handクラスが針部分となっており、さらにhourクラスとminuteクラスでそれぞれの針の色を設定しています。<br/>
+            なお、上記の状態ではhourクラスを持つ針(灰色)の上にminuteクラスの針(水色)が同じ場所に重なっているため、minuteクラスの針しか見えていない状態となっています。<br/><br/>
+            上記の状態では止まったままであるため、<b>これに回転のアニメーション設定を追加します。</b><br/><br/>
+            <img src="img/content_clock_2.png" class="img_adjust"><br/><br/>
+            上図内CSSに書かれている <b>@keyframes</b> (以下、キーフレーム)は、対象がどのような動きをするかを設定できるCSSの構文です。<br/>
+            キーフレームrotateHourには0°～360°の回転運動、rotateMinuteには270°～630°(=360°)の回転運動を設定しました。<br/><br/>
+
+            hourクラスを持つ針(灰色)にはrotateHourを適用、minuteクラスの針(水色)にはrotateMinuteを適用し、それぞれにアニメーションの間隔、進行方法、再生回数を設定しています。<br/>
+            回転の中心は針の左端部分にしたいため、針の共通クラスであるhandクラスに基点を左上とする設定を追加しています。<br/><br/><br/>
+
+            キーフレームやアニメーションの詳細設定によってさまざまな動きをつけることが可能であるため、動かせる環境で色々試してみるのがおすすめです。<br/><br/>
+            
         </p>
     </div>
 </body>

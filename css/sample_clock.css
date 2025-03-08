@@ -5,7 +5,6 @@
     border-radius: 50%;
     outline: 3px solid hsl(245, 44%, 5%);
     background-color: rgb(254, 254, 254);
-    margin-bottom: 20px;
 }
 
 .hand {
@@ -14,18 +13,21 @@
     left: 50%;
     width: 50%;
     height: 2px;
-    background-color: hsl(209, 100%, 69%);
-    transform-origin: 0% 100%;
+    transform-origin: top left;
 }
 
 .hour {
-    height: 2px;
     background-color: rgb(160, 160, 160);
     animation: rotateHour 60s infinite steps(60);
 }
 
 .minute {
+    background-color: hsl(209, 100%, 69%);
     animation: rotateMinute 12s infinite linear;
+}
+
+.img_adjust{
+    width: 100%;
 }
 
 @keyframes rotateHour {
