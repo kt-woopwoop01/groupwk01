@@ -14,6 +14,18 @@
     width: 100%;
 }
 
+@media screen and (max-width:1000px) {
+    .explain-area-images {
+        display: block;
+        height: 600px;
+    }
+
+    .explain-area-images .content-zoom-box img {
+        display: block;
+        margin-bottom: 0px;
+    }
+}
+
 .explain-area-images img {
     display: block;
     height: 300px;
@@ -34,6 +46,7 @@
 } */
 
 .explain-area-images .content-zoom-box img {
+    display: block;
     transition: .5s linear;
     height: 300px;
 }
@@ -41,4 +54,8 @@
 .explain-area-images .content-zoom-box img.active {
     width: auto;
     height: 600px;
+}
+
+p {
+    display: block;
 }
