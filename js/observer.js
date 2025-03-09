@@ -1,22 +1,43 @@
 function observe() {
-    const image = document.querySelector('.content-zoom-box img');
-    console.log(image);
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                image.classList.add('active');
-                setTimeout(() => image.parentElement.scroll({ top: 600, behavior: "smooth" }), 500)
-
-            }
-        });
-    }, {
+    const zoomBox = document.querySelector('.content-zoom-box img');
+    const explainImagesBox = document.querySelector('.explain-area-images');
+    const options = {
         root: null,
         rootMargin: "-50% 0px -50% 0px",
         threshold: 0
-    });
+    }
 
-    observer.observe(image);
+
+    if (zoomBox) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    zoomBox.classList.add('active');
+                    setTimeout(() => {
+                        zoomBox.parentElement.scroll({ top: 600, behavior: "smooth" })
+                        window.removeEventListener("scroll", observe)
+                        obs.disconnect()
+                    }, 500)
+
+                }
+            });
+        }, options);
+        observer.observe(zoomBox);
+        return
+    }
+    if (explainImagesBox) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(explainImagesBox.scrollWidth);
+                    explainImagesBox.scroll({ left: explainImagesBox.scrollWidth, behavior: "smooth" })
+                    obs.disconnect()
+                }
+            });
+        }, options);
+        observer.observe(explainImagesBox);
+        return
+    }
 }
 
-addEventListener("scroll", observe)
+window.addEventListener("scroll", observe, { once: true })
