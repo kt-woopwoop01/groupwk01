@@ -1,0 +1,44 @@
+.img_adjust {
+    width: 100%;
+}
+
+.sample_color {
+    color: #61b3ff
+}
+
+.explain-area-images {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    height: 300px;
+    width: 100%;
+}
+
+.explain-area-images img {
+    display: block;
+    height: 300px;
+    width: auto;
+    transition: .5;
+}
+
+.explain-area-images .content-zoom-box {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    width: auto;
+    height: 300px;
+}
+
+/* .explain-area-images .content-zoom-box img:hover {
+    transition: .5s;
+    height: 600px;
+} */
+
+.explain-area-images .content-zoom-box img {
+    transition: .5s linear;
+    height: 300px;
+}
+
+.explain-area-images .content-zoom-box img.active {
+    width: auto;
+    height: 600px;
+}

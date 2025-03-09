@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +10,26 @@
     <!-- フォント読み込み-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital@0;1&family=Zen+Kaku+Gothic+New&display=swap"
+        rel="stylesheet">
     <!-- デザイン読み込み -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/content.css">
     <link rel="stylesheet" href="css/sample_bird.css">
+    <link rel="stylesheet" href="css/bird.css">
     <!-- 必要があればここにCSSファイルを追加する -->
     <title>hello CSS animations!</title>
 </head>
+
 <body>
     <!-- メニューここから -->
     <div id="menu_embed"></div>
     <script>
-    $(function() {
-        $("#menu_embed").load("menu.html");
-    });
+        $(function () {
+            $("#menu_embed").load("menu.html");
+        });
     </script>
     <!-- メニューここまで　-->
     <div class="main background_white zen-kaku-gothic-new-regular">
@@ -38,7 +43,7 @@
         </div>
         <div class="container_wrapper montserrat-light fadein_content">
             <div class="container">
-                
+
 
             </div>
             <div class="container">
@@ -49,9 +54,10 @@
                     <!-- HTMLを以下preタグの内部に書く -->
                     <!-- "<", ">", '"', "&"はエスケープ処理をすること-->
                     <p>
-<pre>
+                    <pre>
 鳥のSVGを作成しました。
 左右の羽と胴体にクラスを振ってあります。
+svgの中身は省略します。
 </pre>
                     </p>
                     <!-- コードサンプル用HTMLここまで -->
@@ -62,7 +68,7 @@
                     <!-- コードサンプル用CSSここから -->
                     <!-- HTMLを以下preタグの内部に書く -->
                     <p>
-<pre>
+                    <pre>
 @keyframes flap-left {
     0% {
         transform: 
@@ -175,27 +181,43 @@ svg {
                 </div>
             </div>
         </div>
-    <br/>
-    <div class="sub_title">
-        <h2>解説</h2>
-    </div>
-    <div class="explanation">
-        <p>
-            <!-- 以下解説があれば書く -->
-            元々は知り合いのEaglesコピーバンドのBIRDIESの周年ライブ用にデザインした以下の画像がありまして、<br/>
-            <img src="img/bird.svg" height="400px" style="transform: translateX(-200px);"><br/>
-            これを羽ばたかせたいと思ったのが始まりです。<br/>
-            左右の羽と胴体にclassを設定し別々のアニメーションを設定しています。<br/>
-<pre>
-transform
-    rotateX:XXdeg
-    rotateY:XXdeg
-    rotateZ:XXdeg;
-</pre>
-            のXXをCSSアニメーション変化させ、羽ばたかせています。<br/>
-            羽が片方だけピンクなのは、奥側と手前を認識しやすくするためにあえて色分けしています。<br/>
+        <br />
+        <div class="sub_title">
+            <h2>解説</h2>
+        </div>
+        <div class="explanation">
+            <p>
+                <!-- 以下解説があれば書く -->
+                元々は自分でデザインした以下の画像がありまして、<br />
+                <img src="img/bird.svg" height="400px" style="transform: translateX(-200px);"><br />
+                これをCSSアニメーションで羽ばたかせてみました。<br />
+                羽ばたかせるにあたって、画像を左の羽、右の羽、胴体に分け、それぞれに対してアニメーションを設定しています。動きの付け方は<a href="content_arm.html">動く腕のアニメーション</a>
+                と同じような感じですが、今回は立体的な動きを意識するために、transformプロパティの以下3種類の値をアニメーションで変化させます。
+            <ul>
+                <li>rotateX(XXdeg)</li>
+                <li>rotateY(XXdeg)</li>
+                <li>rotateZ(XXdeg);</li>
+            </ul>
+            それぞれx軸, y軸, z軸に対しての回転運動となります。これらを組み合わせ、羽ばたくようなアクションを表現します。<br />
+            具体的には以下の画像を見てください。青色で示されたような具合で動かしています。
+            <div class="explain-area-images">
+                <img src="img/bird1.png " class="img_adjust" loading="lazy">
+                <img src="img/bird2.png" class="img_adjust" loading="lazy">
+                <img src="img/bird3.png " class="img_adjust" loading="lazy">
+                <img src="img/bird2.png" class="img_adjust" loading="lazy">
+                <img src="img/bird1.png " class="img_adjust" loading="lazy">
+            </div>
+            いかがでしょうか。大空をゆったりと羽ばたいているようですね！<br />
+            これについても回転の中心(関節？)はtransform-originで決めています。今回はそれぞれの羽の付け根の位置を意識し位置決めしました。<br />
+            <br />
+            なお、頑張って作成をしてみましたが、もともと2Dを3Dっぽく見せるのも限界がありますので、本格的に鳥を羽ばたかせるつもりであれば3Dに特化したツールやライブラリを使うのがよさそうです。笑。「サクッと羽だけうごかしたい」ということであればCSSの出番です。<br />
+            とりあえずは、CSSでこのような表現もできるということ知ってもらい、CSSアニメーションに興味を持っていただけたら幸いです。<br />
+            <br />
+
+
             <!-- 解説ここまで -->
 
-    </div>
+        </div>
 </body>
+
 </html>
