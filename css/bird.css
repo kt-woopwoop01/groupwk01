@@ -1,0 +1,11 @@
+.img_adjust {
+    display: block;
+    width: auto;
+    height: 330px;
+}
+
+.explain-area-images {
+    display: flex;
+    width: 100%;
+    overflow: auto;
+}
