@@ -1,17 +1,18 @@
 #arm {
     transform-origin: 1350px 500px;
-    animation: flap-left 2s ease-in-out infinite alternate;
-  }
-  @keyframes flap-left {
-  0% {
-      transform:  rotateZ(0deg);
-  }
+    animation: wave 2s ease-in-out infinite alternate;
+}
 
-  50% {
-      transform: rotateZ(8deg);
-  }
+@keyframes wave {
+    0% {
+        transform: rotateZ(0deg);
+    }
 
-  100% {
-      transform:  rotateZ(0deg);
-  }
-}    
+    50% {
+        transform: rotateZ(8deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
