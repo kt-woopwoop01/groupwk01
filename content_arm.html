@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/observer.js" async></script>
     <!-- フォント読み込み-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/content.css">
     <link rel="stylesheet" href="css/hello.css">
+    <link rel="stylesheet" href="css/sample_arm.css">
     <title>hello CSS animations!</title>
 </head>
 
@@ -58,13 +60,13 @@
                 <label class="tab_class" for="tab_html"><b>HTML</b></label>
                 <div class="tab_content">
                     <p>
-                        <pre>
+                    <pre>
 &lt;g id="arm"&gt;
   &lt;path id="Path_2390-8776" data-name="Path 2390" d="M1003.029,290.891A14.289,14.289,0,0,0,990.1,308.577L963.82,327.96,971.7,346.8l36.723-27.894a14.366,14.366,0,0,0-5.4-28.017Z" transform="translate(501.732 102.258)" fill="#ffb6b6"/&gt;
   &lt;path id="Path_2391-8777" data-name="Path 2391" d="M1017.691,326.762l-65.873,73.159s-31.5-10.085-55.865-21.018l-10.945-33.616a66.847,66.847,0,0,1-3.2-24.189c33.774-8.987,73.057,24.453,73.057,24.453l49.309-38.624Z" transform="translate(482.841 105.956)" fill="#61b3ff"/&gt;
 &lt;/g&gt;
                         </pre>
-                        
+
                     </p>
                 </div>
                 <input type="radio" name="tab_name" id="tab_css">
@@ -74,9 +76,9 @@
                     <pre>
 #arm {
     transform-origin: 1350px 500px;
-    animation: flap-left 2s ease-in-out infinite alternate;
+    animation: wave 2s ease-in-out infinite alternate;
     }
-    @keyframes flap-left {
+    @keyframes wave {
     0% {
         transform:  rotateZ(0deg);
     }
@@ -100,8 +102,37 @@
         </div>
         <div class="explanation">
             <p>
-                svgはつまるところhtmlなので、検証ツールなどで動かしたいタグを見つけて、そこにidを振れば、CSSでアニメーションを与えることができます。
-
+                index.htmlのページの椅子に座っている人の腕です。イラストはSVG形式です。SVGはhtmlみたいなもの(xml)なので、CSSアニメーションを設定することができます。<br />
+                ここでは検証ツールなどで動かしたいタグを見つけて、そこにidを振り、CSSでアニメーションを与える流れを説明します。<br />
+                まずは開発者ツールを使ってindex.htmlの動いている腕を見てみましょう。
+            </p>
+            <div class="explain-area-images">
+                <img src="./img/dev_tool_arm.png" loading="lazy" />
+                <div class="content-zoom-box">
+                    <img src="./img/dev_tool_code.png" loading="lazy" />
+                </div>
+            </div>
+            <p>
+                コードブロックの赤枠箇には<code>&lt;g id="arm"&gt;</g></code>があります。元画像の<a href="https://undraw.co/search/hello"
+                    target="_blank">SVGファイル</a>にアニメーション用に付け加えたタグとなります。<br />
+                SVG画像は拡張子をxmlに変更すればVSCode等でコード編集できるので、動かしたい箇所のタグを調べ、該当箇所に任意のidを設定したgタグ(今回はarm)で囲んでおきます。(その後、拡張子をsvgに戻すことをお忘れなく。)<br />
+                これでアニメーションを設定する用意は整いました。
+            </p>
+            <p>
+                さて、アニメーションについてはコードサンプルに記載のとおり、<code>@keyframe wave</code>としてアニメーションを設定しています。その内容は、<code>transform:rotateZ({{回転させたい角度}}deg)</code>を以下のように値を変更させ、手を振っているように見せています。<br />
+            <ul>
+                <li>0%(アニメーション開始時)時点で0度</li>
+                <li>50%時点で8度</li>
+                <li>100%時点でまた0度</li>
+            </ul>
+            そしてアニメーションの呼び出し側のCSSでは、これを無限に繰り返すように指定します。<br />
+            <code>animation: wave 2s ease-in-out infinite alternate;</code>がその設定です。
+            なお、回転軸の中心を<code>transform-origin: 1350px 500px;</code>にて設定しています。これは、SVG上の左上を起点(0,0)として(x, y)=(1350px,
+            500px)の位置に回転運動の軸を設定しています。つまり画像の人の関節の位置をtransform-originで決めているということになります。<br />
+            </p>
+            <p>
+                手を振る動きを加えるだけで、まるでサイト訪問者を歓迎しているように感じられませんか？
+                ちょっとした動きが、訪問者に与える印象を大きく変えます。UX向上のために、ぜひ活用しましょう。
             </p>
         </div>
 </body>
